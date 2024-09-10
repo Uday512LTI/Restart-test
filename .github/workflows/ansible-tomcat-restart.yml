@@ -2,10 +2,10 @@ name: Restart Tomcat Servers
 on:
  push:
    branches:
-     - main  # Or any other branch
+     - main  # Or any branch you want
 jobs:
  deploy:
-   runs-on: pg-pgi-4gb-1cpu
+   runs-on: ubuntu-latest
    steps:
      - name: Checkout repository
        uses: actions/checkout@v3
@@ -17,8 +17,12 @@ jobs:
        run: |
          python -m pip install --upgrade pip
          pip install ansible
+     - name: Add SSH key to agent
+       uses: webfactory/ssh-agent@v0.7.0
+       with:
+         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
      - name: Run Ansible Playbook
        run: |
          ansible-playbook -i inventory.yml tomcat_restart.yml
        env:
-         ANSIBLE_HOST_KEY_CHECKING: 'false'
+         ANSIBLE_HOST_KEY_CHECKING: 'false
