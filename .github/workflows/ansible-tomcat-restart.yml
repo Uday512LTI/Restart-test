@@ -25,4 +25,4 @@ jobs:
        run: |
          ansible-playbook -i inventory.yml tomcat_restart.yml
        env:
-         ANSIBLE_HOST_KEY_CHECKING: 'false
+         ANSIBLE_HOST_KEY_CHECKING: 'false'
