@@ -5,7 +5,7 @@ on:
      - main  # Or any branch you want
 jobs:
  deploy:
-   runs-on: pg-pgi-16gb-4cpu
+   runs-on: pg-pgi-4gb-1cpu
    steps:
      - name: Checkout repository
        uses: actions/checkout@v3
