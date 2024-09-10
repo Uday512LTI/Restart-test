@@ -2,6 +2,5 @@
 tomcat_servers:
  hosts:
    tomcat-server-1:
-     ansible_host: your.server1.ip
-   tomcat-server-2:
-     ansible_host: your.server2.ip
+     ansible_host: 137.182.194.9
+   
